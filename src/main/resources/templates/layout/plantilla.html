@@ -1,28 +1,16 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>Pagina Inicio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet" />
+        <link href="../../static/css/menu.css" rel="stylesheet" type="text/css"/>
+        
     </head>
+    
     <body>
-        <header th:fragment="header"> 
-
-            <h1 style="color:blueviolet;" >Musik</h1>
-            <br>
-            <nav class="nav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                   <ul class="nav-menu">
-                        <li class="nav-menu-item"><a class="nav-item nav-link active" href="#">Inicio</a></li>
-                       <li class="nav-menu-item">  <a class="nav-item nav-link" href="#">Listar</a></li>
-                       <li class="nav-menu-item">  <a class="nav-item nav-link" href="#">Modificar</a></li>
-                        <li class="nav-menu-item"> <a class="nav-item nav-link disabled" href="#">Contactenos</a></li>
-                   </ul>
-                </div>
-            </nav>
-        </header>
+        
     </body>
 </html>

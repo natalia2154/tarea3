@@ -1,1 +1,54 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Open Sans;
+    padding: 20px;
+    background-color: #213363;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 80px;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.nav {
+    text-align: center;
+}
+
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+
+}
+
+.nav-menu {
+    display: inline-flex;
+    list-style: none;
+}
+
+
+.nav-menu-item {
+    font-size: 18px;
+    margin: 10px;
+    line-height:  55px;
+}
+
+
+.nav-menu-item:hover {
+    background-color: #024070;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 20px;
+    line-height:  60px;
+}
 
