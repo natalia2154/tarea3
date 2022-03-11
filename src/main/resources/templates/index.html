@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<!--
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Pagina de Inicio</title>
@@ -25,5 +26,48 @@
                 </div>
             </nav>
         </header>
+    </body>
+</html>
+
+-->
+
+<html>
+    <head>
+        <title>Listado Artistas</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+        <h1>Artistas desde DB</h1>
+        <br>
+        <a th:href="@{/nuevoArtista}">Nuevo Artista</a> <!-- Va al index controller y busca la accion Nuevo Cliente-->
+        <br>
+        <br>
+        <div th:if="${artistasDB != null and !artistasDB.empty}"> <!-- $ consultar atributos u objetos, @ para acciones-rutas-->
+            <table border="1">
+                    <tr>
+                        <td>Nombre</td>
+                        <td>Edad</td>
+                        <td>Canción Popular</td>
+                        <td>Género Musical</td>
+                        <td>--- M ---</td>
+                        <td>--- E ---</td>
+                    </tr>
+                    <tr th:each="item : ${artistasDB}">
+                        <td th:text="${item.nombre}"></td>
+                        <td th:text="${item.edad}"></td>
+                        <td th:text="${item.cancionPopular}"></td>
+                        <td th:text="${item.generoMusical}"></td>
+                        <td><a th:href="@{/modificarArtista/} + ${item.idartista}">Modificar</a></td>
+                        <td><a th:href="@{/eliminarArtista/} + ${item.idartista}">Eliminar</a></td>
+                    </tr>
+            </table>
+        </div>
+        
+        <div th:if="${artistasDB == null or artistasDB.empty}">
+            La lista de artistas está vacía
+        </div>
+        <br>
+        
     </body>
 </html>
