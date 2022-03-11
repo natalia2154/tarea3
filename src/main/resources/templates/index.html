@@ -31,35 +31,55 @@
 
 -->
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Listado Artistas</title>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"><!-- comment -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/css/menu.css" th:href="@{/css/menu.css}" rel="stylesheet" />
     </head>
     <body>
         
-        <h1>Artistas desde DB</h1>
+        <header th:fragment="header"> 
+
+            <h1 class="nav-link logo" >Musik</h1>
+            <br>
+            <nav class="nav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                   <ul class="nav-menu">
+                        <li class="nav-menu-item"><a class="nav-item nav-link active" href="#">Inicio</a></li>
+                       <li class="nav-menu-item">  <a class="nav-item nav-link" href="#">Listar</a></li>
+                       <li class="nav-menu-item">  <a class="nav-item nav-link" href="#">Modificar</a></li>
+                        <li class="nav-menu-item"> <a class="nav-item nav-link disabled" href="#">Contactenos</a></li>
+                   </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <h1 style="color: white">Artistas desde DB</h1>
         <br>
-        <a th:href="@{/nuevoArtista}">Nuevo Artista</a> <!-- Va al index controller y busca la accion Nuevo Cliente-->
+        <a th:href="@{/nuevoArtista}" style="color: white">Nuevo Artista</a> <!-- Va al index controller y busca la accion Nuevo Cliente-->
         <br>
         <br>
         <div th:if="${artistasDB != null and !artistasDB.empty}"> <!-- $ consultar atributos u objetos, @ para acciones-rutas-->
             <table border="1">
                     <tr>
-                        <td>Nombre</td>
-                        <td>Edad</td>
-                        <td>Canción Popular</td>
-                        <td>Género Musical</td>
-                        <td>--- M ---</td>
-                        <td>--- E ---</td>
+                        <td style="color: white">Nombre</td>
+                        <td style="color: white">Edad</td>
+                        <td style="color: white">Canción Popular</td>
+                        <td style="color: white">Género Musical</td>
+                        <td style="color: white">--- M ---</td>
+                        <td style="color: white">--- E ---</td>
                     </tr>
                     <tr th:each="item : ${artistasDB}">
-                        <td th:text="${item.nombre}"></td>
-                        <td th:text="${item.edad}"></td>
-                        <td th:text="${item.cancionPopular}"></td>
-                        <td th:text="${item.generoMusical}"></td>
-                        <td><a th:href="@{/modificarArtista/} + ${item.idartista}">Modificar</a></td>
-                        <td><a th:href="@{/eliminarArtista/} + ${item.idartista}">Eliminar</a></td>
+                        <td th:text="${item.nombre}" style="color: white"></td>
+                        <td th:text="${item.edad}" style="color: white"></td>
+                        <td th:text="${item.cancionPopular}" style="color: white"></td>
+                        <td th:text="${item.generoMusical}" style="color: white"></td>
+                        <td><a th:href="@{/modificarArtista/} + ${item.idartista}" style="color: white">Modificar</a></td>
+                        <td><a th:href="@{/eliminarArtista/} + ${item.idartista}" style="color: white">Eliminar</a></td>
                     </tr>
             </table>
         </div>
